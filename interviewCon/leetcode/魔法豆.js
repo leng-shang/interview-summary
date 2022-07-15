@@ -15,5 +15,18 @@
 // 没有比取出 4 个魔法豆更少的方案。
 let beans = [4,1,6,5]
 function minimumRemoval (beans){
-    
+    let r = []
+    beans.forEach((items)=>{
+        let num = 0
+        beans.forEach((item)=>{
+            if(item>items){
+                num+=item-items
+            }else if(item<items) {
+                num+=item
+            }
+        })
+        r.push(num)
+    })
+   return Math.min(...r)
 }
+console.log(minimumRemoval (beans),'123456789')
