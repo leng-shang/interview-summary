@@ -79,4 +79,4 @@ const allRequest = [
     init();
   }
   
-  sendRequest(allRequests, 2, (result) => console.log(result));
+  sendRequest(allRequest, 2, (result) => console.log(result,'result'));

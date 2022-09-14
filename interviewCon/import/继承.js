@@ -99,8 +99,9 @@ Son4.prototype = Object.create(Parent4.prototype)
 Son4.prototype.constructor = Son4
 
 
-// let s1 = new Son4()
+let s1 = new Son4()
 // let s2 = new Son4()
+console.log(s1.constructor == Parent4)
 
 // s1.play.push(10)
 // console.log(s1.play,s1.myName,'s1')
@@ -121,18 +122,18 @@ class Es6Parent{
     }
 }
 
-class Es6Son extends Es6Parent{
+// class Es6Son extends Es6Parent{
 
-    constructor(width,height){
-        super(width,height)
-        this.w = 2
-        this.h = 6
-    }
+//     constructor(width,height){
+//         super(width,height)
+//         this.w = 2
+//         this.h = 6
+//     }
 
-    area(){
-        return this.w*this.h
-    }
-}
-const square = new Es6Son(10,20);
-console.log(square.area())
-console.log(square.getWidth())
+//     area(){
+//         return this.w*this.h
+//     }
+// }
+// const square = new Es6Son(10,20);
+// console.log(square.area())
+// console.log(square.getWidth())

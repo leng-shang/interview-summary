@@ -28,12 +28,12 @@
 function arrObjDeduplicated (arr){
     let obj = {}
     //1
-    // arrObj.forEach((item)=>{
-    //     if(!Object.keys(obj).includes(item.id)){
-    //         obj[item.id] = item
-    //     }
-    // })
-    // return Object.values(obj)
+    arrObj.forEach((item)=>{
+        if(!Object.keys(obj).includes(item.id)){
+            obj[item.id] = item
+        }
+    })
+    return Object.values(obj)
 
 //     //2
         arr = arr.reduce(function(a, b) {

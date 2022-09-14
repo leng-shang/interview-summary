@@ -10,7 +10,7 @@ const myMemo = useMemo(()=>{
 console.log(myMemo) //{a:1}
 
 const myCallBack = useCallback(()=>{
-    return {a:1}
+    return  {a:1}
 },[])
 
 console.log(myCallBack) //function(){return {a:1}}

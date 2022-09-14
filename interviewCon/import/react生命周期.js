@@ -14,8 +14,10 @@ class lifecycle extends React.Component{
 
     render(){
         //解析state和props
-        //将jsx的虚拟dom转化成对象类型的虚拟dom
+        //处理虚拟dom
+        
     }
+
 
     componentDidMount(){
         //发送数据请求
@@ -31,7 +33,9 @@ class lifecycle extends React.Component{
         //可以判断props或state是否改变，来判断组件是否渲染
         //返回值为true组件进行渲染，false不进行渲染
     }
+    render(){
 
+    }
     componentWillUpdate(){
         //组件更新前准备
     }
