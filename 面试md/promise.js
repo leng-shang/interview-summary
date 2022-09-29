@@ -45,6 +45,7 @@ class myPromise {
         }
     }
     then(onFufilled, onRejected) {
+        console.log(onRejected,'onRejected')
         onFufilled = typeof onFufilled == 'function' ? onFufilled : (val) => val
         onRejected = typeof onRejected == 'function' ? onRejected : (reason) => { throw reason }
         var thenPromise = new myPromise((resolve, reject) => {
@@ -52,6 +53,7 @@ class myPromise {
                 setTimeout(() => {
                     try {
                         const x = cb(this.PromiseResult)
+                        console.log(x)
                         if (x instanceof myPromise) {
                             x.then(resolve, reject)
                         } else {
@@ -157,17 +159,17 @@ class myPromise {
     }
 }
 
-const test1 = new myPromise((resolve, reject) => {
-    resolve(1)
-})
-const test2 = new myPromise((resole,reject) => {
-    reject(2)
-})
+// const test1 = new myPromise((resolve, reject) => {
+//     reject(1)
+// })
 
-test2.then(()=>{
-
-},(err)=>{
-    console.log(err)
-}).then(()=>{
-    
-})
+// test1.then((data)=>{
+//     return data+1
+// },(err)=>{
+//    return err+1
+// }).then((res)=>{
+//     console.log(res,'res')
+// },(errs)=>{
+//     console.log(errs,'errs')
+// })
+module.exports =  myPromise
