@@ -3,6 +3,7 @@
 
 //2.instanceOf 
 //原理：对象的__proto__指向构造函数的prototype
+//缺点：instanceof无法检测基本类型值，比如一个number、string等，除非是类的实例
 //instanceof 是用来检测当前实例是否属于这个类, 而不是用来判断原生的数据类型
 //3.constructor
 //constructor不能判断undefined和null
@@ -16,4 +17,3 @@
 // console.log(f.constructor===Array);
 
 //4.Object.prototype.toString.call()
-

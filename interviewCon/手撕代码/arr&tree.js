@@ -34,11 +34,11 @@ function array2Tree(arrs) {
 }
 const tree = array2Tree(arrs); // 需要定义arrs
 console.log(tree,'tree')
-/**
- * 树转换为数组
- * @param {*} treeData 
- * @returns 
- */
+// /**
+//  * 树转换为数组
+//  * @param {*} treeData 
+//  * @returns 
+//  */
 function tree2Array(treeData) {
     const childToParent = new Map();
     let track = [treeData]
@@ -62,5 +62,5 @@ function tree2Array(treeData) {
     }
     return res;
 }
-const array = tree2Array(tree); // 这个obj对象就是数组转换为树打印出的结果
-console.log(array)
+// const array = tree2Array(tree); // 这个obj对象就是数组转换为树打印出的结果
+// console.log(array)

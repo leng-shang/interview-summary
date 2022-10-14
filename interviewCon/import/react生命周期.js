@@ -11,10 +11,11 @@ class lifecycle extends React.Component{
     componentWillMount(){
         //组件挂载前准备
     }
-
+    componentWillReceiveProps(nextProps){
+        //可以拿到新的属性值，判断组件身上的props是否改变
+    }
     render(){
         //解析state和props
-        //处理虚拟dom
         
     }
 
@@ -23,10 +24,6 @@ class lifecycle extends React.Component{
         //发送数据请求
         //第三库实例化
         //可以获取真实dom，进行dom操作
-    }
-
-    componentWillReceiveProps(nextProps){
-        //可以拿到新的属性值，判断组件身上的props是否改变
     }
 
     shouldComponentUpdate(nextProps,nextState){

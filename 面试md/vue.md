@@ -31,9 +31,18 @@
 > 因为一个组件可能会多处调用，，这样做可以避免数据污染
 
 # vue的修饰符
-> 
+> .trim
+> .number
+> .enter
+> .up
+> .down
 # vue 内部指令
-> 
+> v-show
+> v-if
+> v-else
+> v-for
+> v-model
+> v-once
 
 # 组件之间的传值
 > 父子之间传值 props

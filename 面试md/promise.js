@@ -173,3 +173,15 @@ class myPromise {
 //     console.log(errs,'errs')
 // })
 module.exports =  myPromise
+
+let p = new myPromise((resolve,reject)=>{
+    resolve(1)
+})
+
+p.then((data)=>{
+    return data+1
+}).finally(()=>{
+
+}).then((res)=>{
+    console.log(res,'res')
+})

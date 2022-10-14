@@ -100,33 +100,36 @@ class MyPromise {
     catch(cb){
         return this.then(null, cb);
     }
-    finally(cb){
-        return this.then(value => { 
-            return MyPromise.resolve(cb()).then(() => value);
-        },err => {
-            return MyPromise.resolve(cb()).then(()=>{throw err});
-        });
-    }
 }
 
-let p1 = new MyPromise((resolve, reject) => {
-    // resolve('成功')
-    reject('失败')
-})
-
-// p1.then((data) => {
-//     setTimeout(() => {
-//         console.log(data, 'resole')
-//     }, 1000);
-// }).catch((err)=>{
-//     console.log(err,'catch')
-// }).finally(()=>{
-//     console.log('执行了finally函数')
+// let p1 = new MyPromise((resolve, reject) => {
+//     // resolve('成功')
+//     reject('失败')
 // })
-p1.then(()=>{
+
+// // p1.then((data) => {
+// //     setTimeout(() => {
+// //         console.log(data, 'resole')
+// //     }, 1000);
+// // }).catch((err)=>{
+// //     console.log(err,'catch')
+// // }).finally(()=>{
+// //     console.log('执行了finally函数')
+// // })
+// p1.then(()=>{
     
-}).then(()=>{
+// }).then(()=>{
 
-}).then(()=>{
+// }).then(()=>{
 
-},(e)=>{console.log(e)})
+// },(e)=>{console.log(e)})
+let m = new Promise((resolve,reject)=>{
+    resolve(1)
+})
+m.then((data)=>{
+    return data+1
+}).finally((data)=>{
+ return data+1
+}).then((res)=>{
+    console.log(res)
+})
