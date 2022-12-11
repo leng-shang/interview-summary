@@ -108,7 +108,7 @@ console.log(s1.constructor == Parent4)
 // console.log(s2.play,s2.myName,'s2')
 
 
-//es6继承
+//es6继承 extends
 
 class Es6Parent{
     constructor(width,height){

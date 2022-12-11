@@ -11,32 +11,32 @@ class lifecycle extends React.Component{
     componentWillMount(){
         //组件挂载前准备
     }
-    componentWillReceiveProps(nextProps){
-        //可以拿到新的属性值，判断组件身上的props是否改变
-    }
+
     render(){
         //解析state和props
         
     }
-
 
     componentDidMount(){
         //发送数据请求
         //第三库实例化
         //可以获取真实dom，进行dom操作
     }
-
+    //更新阶段
+    componentWillReceiveProps(nextProps){
+        //可以拿到新的属性值，判断组件身上的props是否改变
+    }
     shouldComponentUpdate(nextProps,nextState){
         //可以判断props或state是否改变，来判断组件是否渲染
         //返回值为true组件进行渲染，false不进行渲染
     }
-    render(){
-
-    }
+    
     componentWillUpdate(){
         //组件更新前准备
     }
+    render(){
 
+    }
     componentDidUpdate(){
         //组件更新完成
     }
@@ -50,7 +50,7 @@ class lifecycle extends React.Component{
     }
     ///17  弃用了componentWillMount、componentWillReceiveProps、componentWillUpdate
     //新增
-    static getDerviedFromProps(nextProps,prevState){    //componentWillReceiveProps
+    static getDerivedStateFromProps(nextProps,prevState){    //componentWillReceiveProps
         //他是静态方法，不能使用this
         //返回一个对象或null
         //返回值是对象，对象里面的内容就是修改的state的内容

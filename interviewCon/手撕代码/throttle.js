@@ -1,13 +1,13 @@
-// function throttle(fn, delay) {
-//     let last = 0 // 上次触发时间
-//     return function (...args) {
-//       const now = Date.now()
-//       if (now - last > delay) {
-//         last = now
-//         fn.apply(this, args)
-//       }
-//     }
-// }
+function throttle(fn, delay) {
+    let last = 0 // 上次触发时间
+    return function (...args) {
+      const now = Date.now()
+      if (now - last > delay) {
+        last = now
+        fn.apply(this, args)
+      }
+    }
+}
   
 //   // 测试
 //   function task() {
@@ -27,17 +27,18 @@
 //     }
 // }
 //二、定时器
-// function throttle(fn,delay){
-//     let timer = null
-//     return function(...argus){
-//         if(!timer){
-//             setTimeout(()=>{
-//                 fn.apply(this,argus)
-//                 timer = null
-//             },delay)
-//         }
-//     }
-// }
+function throttle(fn,delay){
+    let timer = null
+    return function(...argus){
+        if(!timer){
+            timer = setTimeout(()=>{
+                fn.apply(this,argus)
+                timer = null
+            },delay)
+        }
+    }
+}
 //使用场景
 // 监听滚动条位置
 // 防止高频点击提交，防止表单重复提交
+

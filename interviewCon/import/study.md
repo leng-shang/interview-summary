@@ -90,6 +90,7 @@
     虚拟dom:
         即ReactElement对象，虚拟 DOM (VDOM)是真实 DOM 在内存中的表示，由于真实DOM操作非常消耗性能，而react把真实原生DOM转换成了js对象，
         每次数据更新后，重新计算虚拟DOM，并和上一次生成的虚拟Dom进行对比，对发生变化的部分做批量更新，然后再将虚拟dom对象渲染成真实Dom。
+        
     虚拟Dom的组成：ReactElement对象
         type：元素的类型，可以是原生html类型（字符串），或者自定义组件（函数或class）（其中，在jsx中使用的原生元素标签，其type为标签名。而如果是函数组件或class组件，其type就是对应的class或function对象）
         key：组件的唯一标识，用于Diff算法，
@@ -125,6 +126,8 @@
             都使用了虚拟DOM
             都是单向数据流
             都是组件化开发
+            diff算法不同
+            响应式原理不同
         不同点：
             react使用的是jsx，vue是template
             react数据是单向绑定，vue是双向绑定

@@ -1,7 +1,28 @@
 ## http和https的区别和http1.1/http2.0/http3.0
-> https://juejin.cn/post/7016593221815910408
-> https://juejin.cn/post/7016593221815910408
+> https://juejin.cn/post/6995109407545622542
+> http1.0  connection：cloose
+> 短连接
+> http1.1
+> 长连接    connecttion：keep-alive
+> 无状态特性，带来巨大的Http头部
+> 对头阻塞
+> 数据明文传输不安全
+> 不支持服务端推送数据
+> http2.0
+> 二进制传输（HTTP/2 将请求和响应数据分割为更小的帧，并且它们采用二进制编码）
+> 引入了帧和流
+> 多路复用  （就是在一个 TCP 连接中可以存在多条流。换句话说，也就是可以发送多个请求，对端可以通过帧中的标识知道属于哪个请求）
+> heder压缩
+> 支持服务端推送数据
+> http3.0
+> 他是基于udp协议
+> 实现更快速的建立请求连接
+> 实现了tls加密
 
+# http多路复用
+> https://www.cnblogs.com/sj-blogs/p/16128522.html
+> 多路复用就是可以在一个tcp连接中存在多条流，也就是可以发送多个请求，（因为浏览器会对统一域名的请求数量有限制（6）
+> 多路复用技术可以只通过一个TCP链接就可以传输所有的请求数据。
 https加密   
 > https://zhuanlan.zhihu.com/p/43789231
 > 对称加密

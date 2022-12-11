@@ -18,7 +18,7 @@ function array2Tree(arrs) {
         const { id, name, parentId } = item; // 解构赋值
         const node = { id, name }
         treeNode.set(id, node);
-        const parentNode = treeNode.get(parentId);
+        const parentNode = treeNode.get(parentId);//获取父节点
         if (parentNode) {
             if (parentNode.children == null) {
                 parentNode.children = [];

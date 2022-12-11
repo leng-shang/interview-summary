@@ -10,19 +10,20 @@
    > 不同文件类型的依赖模块文件使用对应的loader去解析，最终转为js文件
    > 输出资源 根据output配置输出到文件夹下
   # 有哪些常见的Loader？你用过哪些Loader？
-   > file-loader 把文件输出到一个文件夹中，在代码中通过相对url去引用输出的文件
+  
+   > file-loader 可以用来处理图片，使用file-loader处理的图片会随机生成一个hash值作为图片的名字（讲加载到的模块拷贝到输出目录下）
    > url-loader  与file-loader类似，区别是用户可以设置一个阈值，文件大于这个值交给file-loader处理，小于这个值返回文件base64编码
    > babel-loader 将es6转成es5
-   > image-loader 加载并压缩图片
    > less-loder 将less文件转成css
    > postcss-loader 处理浏览器兼容css样式，通过postcss-preset-env autoprefixer来配置兼容的浏览器
-   > css-loader 处理@import和url的外部资源
-   > style-loader 将css转换成脚本加载的js代码（js文件加载时，通过style-loader提供的方法将其加载到html中。）
+   > css-loader 加载css文件
+   > style-loader 将css代码通过style标签插入到dom中
    > esLint-loader 通过 ESLint 检查 JavaScript 代码
   # 有哪些常见的plugin
    > html-webpack-plugin 可以根据模版自动生成html代码，并自动引入js文件
    > mini-css-extract-plugin 将css提取为独立文件
    > terser-webpack-plugin 压缩js文件
+   > optimize-css-assets-webpack-plugin 压缩css文件
   # 什么是 loader? 什么是 plugin?
    > loader 模块转换器，webpack将一起视为模块，webpack只能加载js文件，loader的作用，就是将webpack拥有了可以解析非js文件的能力
    > plugin 是插件，是对webpack的扩展，使webpack更加灵活
@@ -44,10 +45,14 @@
    > 开起热更新 devServer:{hot:true},plugins:[new webpack.HotModuleReplacementPlugin()]
 
   # webapack打包hash是如何生成的
-   > hash 每个文件具有相同的hash值，文件改变，所有文件的hash值都改变
-   > chunkhash 是根据不同的入口进行依赖文件解析，当某个入口文件修改后，会导致本入口文件关联的所有文件的hash值都修改
-   > contenthash 每个文件的hash值都是根据自身内容而生成，当某个文件内容修改时，只会修改其本身的hash值，不会影响其他文件的hash值  
+   > hash 只要有项目文件更改，就会改变hash
+   > chunkhash 和webpack打包生成的chunk相关。每一个entry，都会有不同的hash
+   > contenthash 和单个文件的内容相关。指定文件的内容发生改变，就会改变hash  
 
+  # webpack model/bundel/chunk得我区别
+  > model是模块，一个文件或第三方组件都可以是模块
+  > chunk一般只webpack处理的入口文件
+  > bundel是指webpack打包产生的资源
 
 # https://juejin.cn/post/6844904094281236487
 

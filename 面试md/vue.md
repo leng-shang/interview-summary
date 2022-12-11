@@ -1,3 +1,4 @@
+# https://blog.csdn.net/qq_37916164/article/details/123693227
 # vue的优缺点
 > vue的优点：虚拟dom、组件化，响应式，数据与视图分开
 > vue的缺点：单页面不利于seo，首屏加载时间长
@@ -36,6 +37,8 @@
 > .enter
 > .up
 > .down
+> .stop：阻止事件冒泡
+> .prevent：阻止默认事件
 # vue 内部指令
 > v-show
 > v-if
@@ -69,6 +72,85 @@
 > 解决办法，在渲染前把不要的进行过滤掉。
 
 # vuex  https://blog.csdn.net/qq_56989560/article/details/124706021
-
+> module 模块
+> state
+> action 
+> mutation
+> getter
 # 不需要响应式的数据应该怎么处理
 > 将数据定义在data之外
+
+
+# watch有哪些属性
+> 监听基本数据类型
+> watch:{value(){//处理逻辑}}
+> 监听引用数据类型时
+> wacth:{
+    obj:{
+        handler(){
+            处理逻辑
+        },
+        deep:true,//是否深度监听
+        immediate:true  //是否初始化执行handler函数
+    }
+  }
+
+# vue响应式原理
+
+# 为什么只对对象进行劫持，而对数组进行方法重写
+> 考虑性能，因为对象最多也就几十个属性，拦截起来数量不多，数组可能有成百上千项，拦截起来非常耗性能，所以直接重写数组原型上的方法
+
+# 如果子组件改变props里的数据会发生什么，
+> 基础类型：如果父传给子的是基础类型，修改则会报错
+> 引用类型：如果父传给子的是引用类型，修改属性会同时修改父组件的数据
+
+# Vue.set方法的原理
+> Vue.set(target, key, value)
+> 判断target是不是数组，如果是，则执行splice(key,1,value)
+> 判断target是对象的话，判断key在target里面是不是存在，存在直接修改；不存在，进行响应式处理
+
+# Vue的computed和watch的原理？
+
+# Vue的模板编译原理？
+
+# nextTick的原理？
+
+# vue虚拟dom和diff算法  https://blog.51cto.com/u_15091652/2603176
+> 如果是首位比较相等，那么比较的开头索引+1
+> 如果是在末尾比较成功，那么比较的结束索引-1，当开头索引大于结束索引时说明比较已经结
+> while(oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx){}
+> if(oldStartIdx > oldEndIdx ){//新增}
+> if( newStartIdx > newEndIdx){//删除}
+
+# watch监听一个对象时，如何排除某些属性的监听
+> ounted() {
+    Object.keys(this.params)
+      .filter((_) => !["c", "d"].includes(_)) // 排除对c，d属性的监听
+      .forEach((_) => {
+        this.$watch((vm) => vm.params[_], handler, {
+          deep: true,
+        });
+      });
+},
+# 路由钩子函数
+> beforeEach：跳转路由前
+> to：将要跳转进入的路由对象
+> from：将要离开的路由对象
+> next：执行跳转的方法
+
+> afterEach：路由跳转后
+> to：将要跳转进入的路由对象
+# 路由独享钩子
+routes: [
+  {
+    path: '/xxx',
+    component: xxx,
+    beforeEnter: (to, from, next) => {
+      
+    }
+  }
+]
+# 组件内路由钩子
+> beforeRouteEnter(to, from, next)：跳转路由渲染组件时触发
+> beforeRouteUpdate(to, from, next)：跳转路由且组件被复用时触发
+> beforeRouteLeave(to, from, next)：跳转路由且离开组件时触发

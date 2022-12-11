@@ -4,23 +4,39 @@
 // }
 
 //深拷贝2
-function deepClone1(obj) {
-    //判断拷贝的要进行深拷贝的是数组还是对象，是数组的话进行数组拷贝，对象的话进行对象拷贝
-    var objClone = Array.isArray(obj) ? [] : {};
-    //进行深拷贝的不能为空，并且是对象或者是
-    if (obj && typeof obj === "object") {
-      for (key in obj) {
-        if (obj.hasOwnProperty(key)) {
-          if (obj[key] && typeof obj[key] === "object") {
-            objClone[key] = deepClone1(obj[key]);
-          } else {
-            objClone[key] = obj[key];
-          }
-        }
-      }
-    }
-    return objClone;
+function isObject(target) {
+  if (typeof target === 'object') {
+      return true
+  }
+  return false
 }
+
+function isArray(target) {
+  if (Array.isArray(target)) {
+      return true
+  }
+  return false
+}
+function deepClone(target) {
+  const map = new Map()
+  function clone (target) {
+    console.log(map,'map')
+      if (isObject(target)) {
+          let cloneTarget = isArray(target) ? [] : {};
+          if (map.get(target)) {
+              return map.get(target)
+          }
+          map.set(target,cloneTarget)
+          for (const key in target) {
+              cloneTarget[key] = clone(target[key]);
+          }
+          return cloneTarget;
+      } else {
+          return target;
+      }
+  }
+  return clone(target)
+};
 
 //深拷贝3
 //借助工具loadsh

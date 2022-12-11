@@ -31,5 +31,3 @@
 > 全面屏的安全距离
 > padding-bottom: constant(safe-area-inset-bottom) 兼容 IOS<11.2
 > padding-bottom: env(safe-area-inset-bottom)   兼容 IOS>11.2)。
-
-

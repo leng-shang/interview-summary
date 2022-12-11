@@ -57,12 +57,4 @@ Function.prototype.myBind = function (context){
 
 }
 
-// function f(y, z){
-//     console.log(this)
-//     return this.x + y + z;
-// }
-// var m = f.myBind({x : 1});
-// console.log(m(2,3));
-// 6
-
 
