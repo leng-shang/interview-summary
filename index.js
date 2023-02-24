@@ -1,17 +1,9 @@
-function Foo(){
-    getName = function (){
-        console.log('1')
-    }
+function myBind(context){
+    let oArgus = [...arguments].slice(1)
+    let _this = this
+     return function(){
+        return _this.call(context,...oArgus,...arguments)
+     }
 }
 
-// Foo.getName = function (){
-//     console.log(2)
-// }
-
-// Foo.prototype.getName = function (){
-//     console.log(3)
-// }
-
-let obj = new Foo()
-// // console.log(obj,'obj')
-Foo.getName()
+fn.bind()()

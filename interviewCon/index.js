@@ -1,10 +1,13 @@
-function a(m,n){
-    return function b(){
-        return m+n
-    }
-}
-let c = a(1,2)()
-let d = a()(3,4)
+a=0
+Object.defineProperty(window,'a',{
+    set:function(){
 
-console.log(c,'c')
-console.log(d,'d')
+    },
+    get:function(){
+        return ++a
+    }
+})
+
+if(a==1&&a==2&&a==3){
+    console.log(1231313)
+}

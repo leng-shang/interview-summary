@@ -21,9 +21,9 @@
    > esLint-loader 通过 ESLint 检查 JavaScript 代码
   # 有哪些常见的plugin
    > html-webpack-plugin 可以根据模版自动生成html代码，并自动引入js文件
-   > mini-css-extract-plugin 将css提取为独立文件
    > terser-webpack-plugin 压缩js文件
    > optimize-css-assets-webpack-plugin 压缩css文件
+   > mini-css-extract-plugin 将css提取为独立文件
   # 什么是 loader? 什么是 plugin?
    > loader 模块转换器，webpack将一起视为模块，webpack只能加载js文件，loader的作用，就是将webpack拥有了可以解析非js文件的能力
    > plugin 是插件，是对webpack的扩展，使webpack更加灵活

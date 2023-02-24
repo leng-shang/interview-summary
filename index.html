@@ -1,33 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-       .list{
-        width: 300px;
-        height: 100px;
-        background: blue;
-        position: absolute;
-        /* float: left; */
-       }
-       .list1{
-            width: 500px;
-            height: 300px;
-            background: red;
-       }
-    </style>
-    
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .showBox{
+     width: 500px;
+     height: 500px;
+     overflow-y: auto;
+     background: red;
+     position: relative;
+    }
+    .box{
+     height: 2000px;
+
+    }
+    .main{
+     position: absolute;
+     left: 0;
+     top: 0;
+    }
+   </style>
 </head>
-
 <body>
-	<div class="list"></div>
-	<span>qertyuiotyuiowertyuiopwertyuiopwertyuiopqweiopertyuiowertyuiopwtyuiowertyuiwetyuiowertyuityuierty</span>
-    <div class="list1"></div>
+  <div class="showBox">
+    <div class="box"></div>
+    <div class="main">
+      12345678
+    </div>
+  </div>
 </body>
-
 </html>
-<script src="./index.js"></script>
+<script>
+  let s = document.getElementsByClassName('showBox')[0]
+  let b = document.getElementsByClassName('box')[0]
+  s.addEventListener('scroll',()=>{
+    let offset = s.scrollTop
+  })
+</script>
