@@ -4,6 +4,7 @@
 > token  用户身份
 > host 请求页面的域名
 > user-agent 用户代理的字符串
+> content-type 请求类型格式
 # http状态码
 > 200 成功、
 > 301 永久重定向

@@ -1,0 +1,21 @@
+html {
+    font-size: 60px;
+  }
+  
+  body {
+    background: #E3E3E3;
+    
+  }
+  
+  .card {
+    display:flex;
+    flex-direction:row;
+    background-color: #FFF0F1;
+    height: 1.36rem;
+    width: 4.3rem;
+    margin: 0 auto;
+    margin-bottom: 0.1rem;
+    border-radius:12px;
+    justify-content:space-between;
+    
+  }

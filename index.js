@@ -1,9 +1,6 @@
-function myBind(context){
-    let oArgus = [...arguments].slice(1)
-    let _this = this
-     return function(){
-        return _this.call(context,...oArgus,...arguments)
-     }
-}
+let a= 1
 
-fn.bind()()
+do{
+    a= a+1
+    console.log(a)
+}while(a<10&&a!=1)

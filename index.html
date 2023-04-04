@@ -5,38 +5,29 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <style>
-    .showBox{
-     width: 500px;
-     height: 500px;
-     overflow-y: auto;
-     background: red;
-     position: relative;
-    }
-    .box{
-     height: 2000px;
-
-    }
-    .main{
-     position: absolute;
-     left: 0;
-     top: 0;
-    }
-   </style>
 </head>
 <body>
-  <div class="showBox">
-    <div class="box"></div>
-    <div class="main">
-      12345678
-    </div>
-  </div>
+  <input type="file"/>
 </body>
 </html>
+<script src="./index.js"></script>
 <script>
-  let s = document.getElementsByClassName('showBox')[0]
-  let b = document.getElementsByClassName('box')[0]
-  s.addEventListener('scroll',()=>{
-    let offset = s.scrollTop
-  })
+  const inp = document.querySelector('input')
+  inp.onchange = (e)=>{
+    const file = inp.files[0]
+    if(!file){
+      return 
+    }
+    //总：8582351
+    const piece = file.slice(0,100)
+    const chunks = createChunk(file,1024*1024)
+    console.log(chunks)
+  }
+  function createChunk(file,chunkSize){
+    const result = []
+    for(let i=0;i<file.size;i+=chunkSize){
+        result.push(file.slice(i,i+chunkSize))
+    }
+    return result
+  }
 </script>

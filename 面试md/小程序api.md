@@ -6,6 +6,7 @@
 # 获取信息
 > 获取设备信息 wx.getSystemInfo
 > 获取地理位置信息  wx.getLocation
+> 获取用户信息 wx.getUserProfile
 # 存储
 > 同步存储
 > 存 wx.setStorageSync(string key, any data)

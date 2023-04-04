@@ -2,7 +2,7 @@
   # 谈谈你对Webpack的看法
    > Webpack是一个模块打包工具，可以使用它管理项目中的模块依赖，并编译输出模块所需的静态文件。
    > 它可以很好地管理、打包开发中所用到的HTML,CSS,JavaScript和静态文件（图片，字体）等，让开发更高效。
-   > 对于不同类型的依赖，Webpack有对应的模块加载器，而且会分析模块间的依赖关系，最后合并生成优化的静态资源
+   > 对于不同类型 的依赖，Webpack有对应的模块加载器，而且会分析模块间的依赖关系，最后合并生成优化的静态资源
   # webpack打包流程
    > 读取webpack配置参数
    > 启动webpack，创建compile对象
@@ -43,6 +43,15 @@
    > http://www.cncsto.com/article/85139.html
    > 指在应用程序运行过程中，替换、添加、删除模块，而无需重新刷新整个应用
    > 开起热更新 devServer:{hot:true},plugins:[new webpack.HotModuleReplacementPlugin()]
+
+   > 使用express生成一个本地服务
+   > 使用websocket建立一个webscoket服务
+   > 向入口插入两个文件，一个是client，建立webcoket双向通信，一个是dev-server，他是检查更新逻辑的
+   > 监听webpack编译，当webpack编译完成后会想客户端发送两个事件，一个是hash事件，一个是ok事件，hash事件就是讲新的hash传给客户端，ok事件是告诉客户端编译完成了
+   > 浏览器接收着两个事件，hash事件讲旧的hash替换成新的hash
+   > ok事件，发送了两个请求，一个是json请求和js请求
+   > json请求的返回值有两个属性，一个是h,新的hash，c改变的模块，
+   > 根据改变的模块名和hash发送js请求来获取新的内容，去替换掉老的内容
 
   # webapack打包hash是如何生成的
    > hash 只要有项目文件更改，就会改变hash
