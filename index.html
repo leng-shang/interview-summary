@@ -1,33 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .content {
+            height: 10000px; 
+            position: relative;
+        }
+        .box-1{
+          width: 0;
+          height: 0;
+          border-left: 50px solid red;
+          border-top: 50px solid blue;
+          border-bottom: 50px solid black;
+        }
+        .box-2{
+          width: 0;
+          height: 0;
+          border: 50px solid transparent;
+          border-left-color: blue;
+        }
+        .box-3{
+          height: 600px;
+          /* background-color: black; */
+        }
+    </style>
 </head>
 <body>
-  <input type="file"/>
+    <div class="content">
+      <div class="box-1">box-1</div>
+      <div class="box-2">box-2</div>
+      <div class="box-3">box-3</div>
+    </div>
 </body>
 </html>
 <script src="./index.js"></script>
-<script>
-  const inp = document.querySelector('input')
-  inp.onchange = (e)=>{
-    const file = inp.files[0]
-    if(!file){
-      return 
-    }
-    //总：8582351
-    const piece = file.slice(0,100)
-    const chunks = createChunk(file,1024*1024)
-    console.log(chunks)
-  }
-  function createChunk(file,chunkSize){
-    const result = []
-    for(let i=0;i<file.size;i+=chunkSize){
-        result.push(file.slice(i,i+chunkSize))
-    }
-    return result
-  }
-</script>
